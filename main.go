@@ -17,7 +17,8 @@ func main() {
 	path := flag.Arg(0)
 	file, err := os.ReadFile(path)
 	if err != nil {
-		panic(err)
+		fmt.Println("Please pass file path")
+		os.Exit(0)
 	}
 	var out any
 	switch {
@@ -33,7 +34,6 @@ func main() {
 		out = fmt.Sprintf("%d\t%d\t%d\t%d", calculateBytes(file), calculateLines(file), calculateWords(file), calculateCharacters(file))
 
 	}
-
 	fmt.Printf("%v %s\n", out, path)
 }
 
